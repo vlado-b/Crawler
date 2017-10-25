@@ -79,29 +79,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BytesConverter.cs" />
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\DownloadHtmlDocumentCmd.cs" />
-    <Compile Include="Commands\DownloadHtmlResult.cs" />
-    <Compile Include="Commands\DownloadImageDocumentCmd.cs" />
-    <Compile Include="Commands\DownloadImageResult.cs" />
-    <Compile Include="Commands\DummyFileSaver.cs" />
-    <Compile Include="Commands\FileSaver.cs" />
-    <Compile Include="Commands\SaveDocumentCmd.cs" />
-    <Compile Include="Commands\SaveDocumentRequest.cs" />
-    <Compile Include="CrawlDocument.cs" />
-    <Compile Include="DownloadTest.cs" />
-    <Compile Include="Commands\Result.cs" />
-    <Compile Include="Commands\LinkParserCmd.cs" />
-    <Compile Include="FilePathGenerator.cs" />
-    <Compile Include="FileSavingTests.cs" />
-    <Compile Include="ParserTests.cs" />
+    <Compile Include="TestDoubles\DummyFileSaver.cs" />
+    <Compile Include="DownloadCommandsTests.cs" />
+    <Compile Include="FileSavingCommandTests.cs" />
+    <Compile Include="LinkParsingCommandsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="CommandAsserts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -115,9 +103,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ResourcesForTest\main.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="Commands\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Crawler\Crawler.csproj">
+      <Project>{75afbd7e-44da-465a-904f-39ab9d115260}</Project>
+      <Name>Crawler</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
